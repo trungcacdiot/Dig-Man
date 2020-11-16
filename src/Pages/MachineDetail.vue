@@ -93,10 +93,13 @@ button{
     height: 49px;
     border-radius: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
+    border: none;
 }
 .button{
     display: flex;
     justify-content: space-evenly;
+    
 }
 .nice{
     background: #2DE53F;
