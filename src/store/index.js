@@ -5,7 +5,7 @@ import detailModule from "./MachineDetail/index";
 const store = createStore({
     modules: {
         machines: machinesModule,
-        detail: detailModule
+        details: detailModule
     },
 })
 

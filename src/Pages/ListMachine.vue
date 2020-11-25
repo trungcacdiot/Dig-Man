@@ -1,11 +1,11 @@
 <template>
-    <base-card v-for="machine in machines" :key="machine" >
+    <base-card v-for="machine in machines" :key="machine.model" >
     <div class="name">
-    <base-button id="name_button" >{{machine.name}}</base-button><br/>
+    <base-button id="name_button" >{{machine.model}}</base-button><br/>
     </div>
     <div class="list_machines">
-    <div   v-for="id in machine.id" :key='id'>
-    <base-button link to="/detail"  :id="id" >{{id}}</base-button>
+    <div   v-for=" detail in machine.listModel" :key='detail.id'>
+    <base-button link to="/detail"  :id="detail.id" >{{detail.id}}</base-button>
     </div>
     </div>
     
@@ -13,6 +13,10 @@
     <base-button id="name_add" >ADD</base-button>
     </div>
     </base-card>
+    <div class="button_add_model"> 
+    <base-button link to ="/form-model" >Add model</base-button>
+
+    </div>
 </template>
 
 
@@ -49,5 +53,9 @@ color: black;
     display: flex;
     flex-wrap: wrap;
     
+}
+.button_add_model{
+    margin: auto auto;
+    max-width: 9rem;
 }
 </style>

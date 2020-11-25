@@ -28,7 +28,7 @@ export default {
     id: {
       type: String,
       required: false,
-      default: null
+      default: ""
     }
   },
   computed: {
