@@ -1,6 +1,5 @@
 <template>
     <base-card>
-    <!-- <form @submit.prevent="onSubmit" > -->
         
             <base-card class="base-card">
         <label for="model">Model:</label>
@@ -20,9 +19,12 @@
             <button :class="{ error: listModel.state.isError }" @click="error" >Máy lỗi</button>
             <button :class="{maintance: listModel.state.isMaintance}" @click="maintance">Máy bảo trì</button>
         </div>
+        <div class="container">
+            <button>APPLY</button>
         </div>
-    <!-- </form> -->
+        </div>
     </base-card>
+
 </template>
 <script>
 export default {
@@ -115,10 +117,17 @@ input{
     border-width: 2px;
     border-color: blue;
     border-radius: 5px;
+    font-size: 20px;
+    margin-left: 10px ;
+    width: 150px;
 }
+
 .base-card{
     display: flex;
     justify-content: center;
+    align-items: center;
+    
+
 }
 .button{
     display: flex;
