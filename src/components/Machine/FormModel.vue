@@ -20,11 +20,11 @@
             <button :class="{maintance: listModel.state.isMaintance}" @click="maintance">Máy bảo trì</button>
         </div>
         <div class="container">
-            <button>APPLY</button>
+            <button @click="addModel">APPLY</button>
+            <button @click="test">get</button>
         </div>
         </div>
     </base-card>
-
 </template>
 <script>
 export default {
@@ -86,12 +86,33 @@ export default {
             }
             console.log(this.model)
 
+        },
+        addModel(){
+            const newModel={
+                    model: this.model,
+                    listModel: {
+                        id: this.id,
+                        state:{
+                        isRunning: this.listModel.state.isRunning,
+                        isError: this.listModel.state.isError,
+                        isMaintance: this.listModel.state.isMaintance,
+                        isNice: this.listModel.state.isNice
+                    },
+                    history: {
+                        date: '',
+                        historyMaintance: ''
+                    }
+                    }   
+            }
+            this.$store.dispatch('machines/addModel',newModel)
+            console.log(newModel)
+        },
+        test(){
+            this.$store.getters['machines/listMachines']
+            console.log(this.$store.getters['machines/listMachines'])
         }
         }
     }
-
-    
-
 </script>
 
 <style scoped>
@@ -147,3 +168,5 @@ input{
     background: #FEB979;
 }
 </style>
+
+
