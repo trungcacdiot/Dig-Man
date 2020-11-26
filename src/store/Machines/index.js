@@ -15,7 +15,7 @@ export default {
                     listModel: [{
                         id: 'D11',
                         state:{
-                        isRunning: false,
+                        isRunning: true,
                         isError: false,
                         isMaintance: false,
                         isNice: false

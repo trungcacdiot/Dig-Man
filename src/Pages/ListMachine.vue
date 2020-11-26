@@ -8,14 +8,12 @@
     <base-button link to="/detail"  :id="detail.id" >{{detail.id}}</base-button>
     </div>
     </div>
-    
     <div class="name">
     <base-button id="name_add" >ADD</base-button>
     </div>
     </base-card>
     <div class="button_add_model"> 
     <base-button link to ="/form-model" >Add model</base-button>
-
     </div>
 </template>
 

@@ -7,12 +7,12 @@
     </div>
     <div>
         <div class="container button">
-            <button :class="{nice: !!stateMachine.isNice}" @click="nice" >Máy in đẹp</button>
-            <button :class="{running: !!stateMachine.isRunning}" @click="running" >Máy hoạt động</button>
+            <button :class="{nice: state.isNice}" @click="nice()" >Máy in đẹp</button>
+            <button :class="{running: state.isRunning}" @click="running()" >Máy hoạt động</button>
         </div>
         <div class="container button">
-            <button :class="{ error: !!stateMachine.isError }" @click="error" >Máy lỗi</button>
-            <button :class="{maintance: !!stateMachine.isMaintance}" @click="maintance">Máy bảo trì</button>
+            <button :class="{ error: state.isError }" @click="error()" >Máy lỗi</button>
+            <button :class="{maintance: state.isMaintance}" @click="maintance()">Máy bảo trì</button>
         </div>
     </div>
      <div class="container">
@@ -48,48 +48,43 @@ export default {
     
     computed:{
         stateMachine(){
-           return this.$store.getters['details/getState'];
+           return this.$store.getters['machines/getState'];
         },
     },
     methods: {
         nice(){
-             this.state.isNice= !this.state.isNice;
-            if(this.state.isNice===true){
+             this.state.isNice = true;
+            
                 this.state.isRunning=false;
                 this.state.isError=false;
                 this.state.isMaintance=false;
-            }
+            
+            
+            
         },
         running(){
-             this.state.isRunning=!this.state.isRunning;
-             if(this.state.isRunning===true){
+             this.state.isRunning=true;
+            
                  this.state.isNice=false;
                  this.state.isError=false;
                  this.state.isMaintance=false;
-             }       
+                   
         },
         error(){
-            this.state.isError=!this.state.isError;
-            if(this.state.isError===true){
+            this.state.isError=true;
+           
                 this.state.isNice=false;
                 this.state.isRunning=false;
                 this.state.isMaintance=false
-            }
-           
-            
-
-            
+  
         },
         maintance(){
-             this.state.isMaintance=!this.state.isMaintance;
-             if(this.state.isMaintance===true){
+             this.state.isMaintance=true;
+             
                  this.state.isNice=false;
                  this.state.isRunning=false;
                  this.state.isError=false;
-             }
-         
-            
-             
+    
         },
         apply(){
             const newDetail={

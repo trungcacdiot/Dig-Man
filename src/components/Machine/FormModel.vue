@@ -25,9 +25,12 @@
         </div>
         </div>
     </base-card>
+    <list-machine></list-machine>
 </template>
 <script>
+import ListMachine from '../../Pages/ListMachine.vue';
 export default {
+  components: { ListMachine },
     data(){
         return {
                     model: '',
@@ -90,8 +93,8 @@ export default {
         addModel(){
             const newModel={
                     model: this.model,
-                    listModel: {
-                        id: this.id,
+                    listModel: [{
+                        id: this.listModel.id,
                         state:{
                         isRunning: this.listModel.state.isRunning,
                         isError: this.listModel.state.isError,
@@ -102,10 +105,10 @@ export default {
                         date: '',
                         historyMaintance: ''
                     }
-                    }   
+                    }  ] 
             }
             this.$store.dispatch('machines/addModel',newModel)
-            console.log(newModel)
+            
         },
         test(){
             this.$store.getters['machines/listMachines']
