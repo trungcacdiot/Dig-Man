@@ -1,5 +1,8 @@
 <template>
-    <base-card>
+    <base-card :class="{nice_bg: listModel.state.isNice, 
+                        running_bg: listModel.state.isRunning,
+                        error_bg: listModel.state.isError,
+                        maintance_bg: listModel.state.isMaintance}">
         
             <base-card class="base-card">
         <label for="model">Model:</label>
@@ -25,12 +28,9 @@
         </div>
         </div>
     </base-card>
-    <list-machine></list-machine>
 </template>
 <script>
-import ListMachine from '../../Pages/ListMachine.vue';
 export default {
-  components: { ListMachine },
     data(){
         return {
                     model: '',
@@ -169,6 +169,18 @@ input{
 }
 .maintance{
     background: #FEB979;
+}
+.nice_bg{
+    background: #DCFEC2;
+}
+.running_bg{
+    background: #E9FAFE;
+}
+.error_bg{
+    background: #FEE9E9;
+}
+.maintance_bg{
+    background: #FEF8E9;
 }
 </style>
 

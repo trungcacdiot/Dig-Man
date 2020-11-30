@@ -1,7 +1,10 @@
 <template>
 
 <section>
-    <base-card >
+    <base-card :class="{nice_bg: state.isNice, 
+                        running_bg: state.isRunning,
+                        error_bg: state.isError,
+                        maintance_bg: state.isMaintance}">
     <div class="container">
     <h1 class="name" >{{id}}</h1>
     </div>
@@ -143,6 +146,18 @@ button{
 .apply_button{
     display: flex;
     justify-content: center;
+}
+.nice_bg{
+    background: #DCFEC2;
+}
+.running_bg{
+    background: #E9FAFE;
+}
+.error_bg{
+    background: #FEE9E9;
+}
+.maintance_bg{
+    background: #FEF8E9;
 }
 </style>
 

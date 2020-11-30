@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from "vue-router";
 import ListMachine from "./Pages/ListMachine.vue";
 import MachineDetail from "./Pages/MachineDetail.vue";
 import FormModel from "./components/Machine/FormModel.vue"
+import FormDetail from "./components/Machine/FormDetail.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -12,6 +13,10 @@ const router = createRouter({
         {path: '/detail/:id',
          component: MachineDetail,
             props: true
+        },
+        {path: "/addMachine/:id",
+        component: FormDetail,
+        props: true
         }
     ]
 });
