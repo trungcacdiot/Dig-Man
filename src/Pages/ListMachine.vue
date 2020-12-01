@@ -5,7 +5,19 @@
     </div>
     <div class="list_machines">
     <div   v-for=" detail in machine.listModel" :key='detail.id'>
-    <base-button link to="/detail"  :id="detail.id" >{{detail.id}}</base-button>
+    <router-link to="/detail">
+    <button class="button" :class="{nice_bg: detail.state.isNice, 
+                        running_bg: detail.state.isRunning,
+                        error_bg: detail.state.isError,
+                        maintance_bg: detail.state.isMaintance}"
+                        >{{detail.id}}</button>
+    </router-link>
+    <!-- <base-button link to="/detail" 
+                        :class="{nice_bg: detail.state.isNice, 
+                        running_bg: detail.state.isRunning,
+                        error_bg: detail.state.isError,
+                        maintance_bg: detail.state.isMaintance}"
+                        :id="detail.id" >{{detail.id}}</base-button> -->
     </div>
     </div>
     <div class="name">
@@ -52,8 +64,37 @@ color: black;
     flex-wrap: wrap;
     
 }
+.button{
+    text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  font: inherit;
+  border: 1px solid #3a0061;
+  color: white;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-right: 0.5rem;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.button:hover,
+.button:active {
+     background-color: #ffb000;
+  border-color: #270041;
+}
+
 .button_add_model{
     margin: auto auto;
     max-width: 9rem;
 }
+.nice_bg{
+    background: #2DE53F;
+}
+.running_bg{
+    background: #35C7F5;
+}
+.error_bg{
+    background: #E81522;
+}
+.maintance_bg{
+    background: #FEB979;}
 </style>

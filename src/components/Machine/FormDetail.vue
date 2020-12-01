@@ -22,8 +22,8 @@
             <button :class="{maintance: listModel.state.isMaintance}" @click="maintance">Máy bảo trì</button>
         </div>
         <div class="container">
-            <button @click="addMachine">APPLY</button>
-            <button @click="test">get</button>
+        <router-link to="/"><button @click="addMachine">APPLY</button></router-link>
+            
         </div>
         </div>
     </base-card>
@@ -111,10 +111,10 @@ export default {
             this.$store.dispatch('machines/addMachine',newModel);
             
         },
-        test(){
-            this.$store.getters['machines/listMachines']
-            console.log(this.$store.getters['machines/listMachines'])
-        }
+        // test(){
+        //     this.$store.getters['machines/listMachines']
+        //     console.log(this.$store.getters['machines/listMachines'])
+        // }
         }
     }
 </script>
