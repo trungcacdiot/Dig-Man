@@ -23,8 +23,10 @@
             <button :class="{maintance: listModel.state.isMaintance}" @click="maintance">Máy bảo trì</button>
         </div>
         <div class="container">
+        <router-link to="/">
             <button @click="addModel">APPLY</button>
-            <button @click="test">get</button>
+        </router-link>
+            
         </div>
         </div>
     </base-card>

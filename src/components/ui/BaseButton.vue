@@ -52,10 +52,9 @@ a {
   margin-right: 0.5rem;
   display: inline-block;
   margin-bottom: 5px;
+  background-color: #3a0061;
 }
-.color{
-background-color: #3a0061;
-}
+
 
 a:hover,
 a:active,

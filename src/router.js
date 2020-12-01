@@ -14,9 +14,10 @@ const router = createRouter({
          component: MachineDetail,
             props: true
         },
-        {path: "/addMachine/:id",
+        {path: "/addMachine/:model/:id",
         component: FormDetail,
-        props: true
+        props: {id: true,
+                model:true}
         }
     ]
 });

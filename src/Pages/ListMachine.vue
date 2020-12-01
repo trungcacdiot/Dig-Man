@@ -5,19 +5,19 @@
     </div>
     <div class="list_machines">
     <div   v-for=" detail in machine.listModel" :key='detail.id'>
-    <router-link to="/detail">
+    <!-- <router-link to="/detail">
     <button class="button" :class="{nice_bg: detail.state.isNice, 
                         running_bg: detail.state.isRunning,
                         error_bg: detail.state.isError,
                         maintance_bg: detail.state.isMaintance}"
                         >{{detail.id}}</button>
-    </router-link>
-    <!-- <base-button link to="/detail" 
+    </router-link> -->
+    <base-button link to="/detail"
                         :class="{nice_bg: detail.state.isNice, 
                         running_bg: detail.state.isRunning,
                         error_bg: detail.state.isError,
                         maintance_bg: detail.state.isMaintance}"
-                        :id="detail.id" >{{detail.id}}</base-button> -->
+                        :id="detail.id" >{{detail.id}}</base-button>
     </div>
     </div>
     <div class="name">
@@ -37,7 +37,9 @@ export default {
             // console.log(this.$store.getters['machines/listMachines']);
             return this.$store.getters['machines/listMachines'];
         },
-       
+        linkDetail(){
+      return this.to + '/' +this.id
+        }
     },
     
 }

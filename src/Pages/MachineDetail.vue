@@ -50,14 +50,15 @@ export default {
     },
     
     computed:{
+        
         stateMachine(){
-           return this.$store.getters['machines/getState'];
+           return this.$store.getters['machines/listMachines'];
         },
     },
     methods: {
         nice(){
              this.state.isNice = true;
-            
+            console.log(this.$route)
                 this.state.isRunning=false;
                 this.state.isError=false;
                 this.state.isMaintance=false;
