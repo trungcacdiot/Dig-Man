@@ -1,6 +1,6 @@
 <template>
-     <div v-if="displaycomponents">
-        <machine-detail :id="idChosed"></machine-detail>
+     <div class="detail" v-if="displaycomponents">
+        <machine-detail :id="idChosed" @back-home="backHome()"></machine-detail>
     </div>
     <base-card v-for="machine in machines" :key="machine.model" >
     <div class="name">
@@ -53,6 +53,10 @@ export default {
             this.idChosed=idChosed;
             this.displaycomponents=!this.displaycomponents;
             this.$store.dispatch('machines/chosedModel',model)
+        },
+        backHome(){
+            this.displaycomponents=!this.displaycomponents;
+
         }
     }
     
@@ -61,6 +65,12 @@ export default {
 
 
 <style scoped>
+.detail{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .name{
     width: 100%;
     

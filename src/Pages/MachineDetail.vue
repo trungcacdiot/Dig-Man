@@ -32,6 +32,7 @@
 <script>
 export default {
     props: ['id'],
+    emit: ['back-home'],
     data(){
         return{
             name: this.id,
@@ -91,13 +92,14 @@ export default {
     
         },
         apply(){
-            const newDetail={
-                name: this.name,
-                state: this.state,
-                history: this.history
-            }
-            this.$store.dispatch('details/addDetail', newDetail);
-           
+
+            // const newDetail={
+            //     name: this.name,
+            //     state: this.state,
+            //     history: this.history
+            // }
+            // this.$store.dispatch('details/addDetail', newDetail);
+           this.$emit("back-home");
         }
     }
 }
