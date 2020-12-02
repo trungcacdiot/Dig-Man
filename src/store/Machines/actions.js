@@ -4,5 +4,10 @@ export default{
     },
     addMachine(context,payload){
         context.commit('addMachine',payload);
+    },
+    chosedModel(context,payload){
+        context.commit('chosedModel',payload)
+        
     }
+    
 }

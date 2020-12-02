@@ -8,9 +8,10 @@ export default {
     namespaced: true,
     state(){
         return {
-
+            chosedModel: '',
             machines: [ 
                 {
+                    
                     model: 'MODIX',
                     listModel: [{
                         id: 'D11',

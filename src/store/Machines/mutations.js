@@ -9,6 +9,12 @@ export default {
                 
             }
         }
+    },
+    chosedModel(state,payload){
+       
+        state.chosedModel = payload;
+        console.log(state.chosedModel)
+        
     }
 }
 

@@ -1,5 +1,4 @@
 <template>
-
 <section>
     <base-card :class="{nice_bg: state.isNice, 
                         running_bg: state.isRunning,
@@ -22,6 +21,7 @@
      <h1 class="name" >Machine history</h1>
     </div> 
     <div class="apply_button">
+    <base-button @click="stateMachine()">Get Data</base-button>
     <base-button @click="apply"  >Apply</base-button>
         </div>
     </base-card>
@@ -48,27 +48,27 @@ export default {
         }
   
     },
+   created(){
+       this.stateMachine();
+   },
     
-    computed:{
-        
-        stateMachine(){
-           return this.$store.getters['machines/listMachines'];
-        },
-    },
     methods: {
         nice(){
              this.state.isNice = true;
-            console.log(this.$route)
                 this.state.isRunning=false;
                 this.state.isError=false;
                 this.state.isMaintance=false;
-            
-            
-            
+        },
+       
+         stateMachine(){
+          let getState= this.$store.getters['machines/stateMachine'].listModel.find(machine=>machine.id===this.id);
+          this.state.isNice=getState.state.isNice;
+          this.state.isRunning=getState.state.isRunning;
+          this.state.isError=getState.state.isError;
+          this.state.isMaintance=getState.state.isMaintance;
         },
         running(){
              this.state.isRunning=true;
-            
                  this.state.isNice=false;
                  this.state.isError=false;
                  this.state.isMaintance=false;
