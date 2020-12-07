@@ -19,23 +19,28 @@
     </div>
      <div class="container">
      <h1 class="name" >Machine history</h1>
-    </div> 
+    </div>
     <div class="apply_button">
-    <base-button @click="stateMachine()">Get Data</base-button>
-    <base-button @click="apply"  >Apply</base-button>
+    <!-- <base-button @click="stateMachine()">Get Data</base-button> -->
+    <base-button @click="apply">Apply</base-button>
         </div>
+    <machine-history :id="id" :model="model"></machine-history>
     </base-card>
 </section>
 
 </template>
 
 <script>
+import MachineHistory from "./MachineHistory"
 export default {
-    props: ['id'],
+    props: ['id', 'model'],
     emit: ['back-home'],
+    components: {
+        MachineHistory
+    },
     data(){
         return{
-            name: this.id,
+           
             state:{
             isNice: false,
             isRunning: false,
@@ -93,12 +98,15 @@ export default {
         },
         apply(){
 
-            // const newDetail={
-            //     name: this.name,
-            //     state: this.state,
-            //     history: this.history
-            // }
-            // this.$store.dispatch('details/addDetail', newDetail);
+            const newState={
+                model:this.model,
+                id: this.id,
+                isNice: this.state.isNice,
+                isRunning: this.state.isRunning,
+                isError: this.state.isError,
+                isMaintance: this.state.isMaintance
+            }
+            this.$store.dispatch('machines/newState', newState);
            this.$emit("back-home");
         }
     }

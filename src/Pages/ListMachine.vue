@@ -1,6 +1,6 @@
 <template>
      <div class="detail" v-if="displaycomponents">
-        <machine-detail :id="idChosed" @back-home="backHome()"></machine-detail>
+        <machine-detail :model="modelChosed" :id="idChosed" @back-home="backHome()"></machine-detail>
     </div>
     <base-card v-for="machine in machines" :key="machine.model" >
     <div class="name">
@@ -36,7 +36,8 @@ export default {
     data(){
         return {
             displaycomponents: false,
-            idChosed:''
+            idChosed:'',
+            modelChosed: ""
         }
     }
     ,
@@ -51,6 +52,7 @@ export default {
     methods: {
         chosedModel(model,idChosed){
             this.idChosed=idChosed;
+            this.modelChosed=model
             this.displaycomponents=!this.displaycomponents;
             this.$store.dispatch('machines/chosedModel',model)
         },

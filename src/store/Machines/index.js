@@ -21,10 +21,42 @@ export default {
                         isMaintance: false,
                         isNice: false
                     },
-                    history: {
-                        date: '',
-                        historyMaintance: ''
-                    }
+                    history: [{
+                        date: '4/12/2020',
+                        hours: '22:25',
+                        contents: 'test test test test test test test'
+                        },
+                        {
+                            date: '6/12/2020',
+                            hours: '22:25',
+                            contents: 'test test test test test test test'
+                        },
+                        {
+                            date: '5/12/2020',
+                            hours: '22:25',
+                            contents: 'test test test test test test test'
+                        },
+                        {
+                            date: '5/12/2020',
+                            hours: '22:25',
+                            contents: 'test test test test test test test'
+                        },
+                        {
+                            date: '6/12/2020',
+                            hours: '22:25',
+                            contents: 'test test test test test test test'
+                        },
+                        {
+                            date: '6/12/2020',
+                            hours: '22:25',
+                            contents: 'test test test test test test test'
+                        },
+                        {
+                            date: '10/12/2020',
+                            hours: '22:25',
+                            contents: 'test test test test test test test'
+                        },],
+                    
                     }]
                     }
             ]

@@ -8,6 +8,9 @@ export default{
     chosedModel(context,payload){
         context.commit('chosedModel',payload)
         
+    },
+    newState(context,payload){
+        context.commit('newState',payload)
     }
     
 }
