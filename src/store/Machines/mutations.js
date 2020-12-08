@@ -12,7 +12,6 @@ export default {
     },
     chosedModel(state,payload){
         state.chosedModel = payload;
-        // console.log(state.chosedModel)
         
     },
     newState(state,payload){
@@ -21,6 +20,10 @@ export default {
        stateChosed.isError= payload.isError;
        stateChosed.isMaintance=payload.isMaintance;
        stateChosed.isNice=payload.isNice;
+    },
+    historyIdentify(state,payload){
+        state.findDate.model=payload.model;
+        state.findDate.id=payload.id;
     }
 }
 

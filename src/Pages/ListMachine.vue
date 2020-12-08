@@ -107,7 +107,7 @@ color: black;
 .button:hover,
 .button:active {
      background-color: #ffb000;
-  border-color: #270041;
+    border-color: #270041;
 }
 
 .button_add_model{

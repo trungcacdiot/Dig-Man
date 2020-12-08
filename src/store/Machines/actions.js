@@ -11,6 +11,9 @@ export default{
     },
     newState(context,payload){
         context.commit('newState',payload)
+    },
+    historyIdentify(context,payload){
+        context.commit('historyIdentify',payload)
     }
     
 }

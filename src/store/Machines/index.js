@@ -9,6 +9,8 @@ export default {
     state(){
         return {
             chosedModel: '',
+            findDate: {model: 'MODIX',
+                        id: "D11"},
             machines: [ 
                 {
                     

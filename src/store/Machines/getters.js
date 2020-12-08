@@ -6,12 +6,12 @@ export default {
         return state.machines.find(machine=>machine.model===state.chosedModel);
     },
     getHistory(state){
-       let payload={
-            model: 'MODIX',
-            id: "D11"
-        }
+    //    let payload={
+    //         model: 'MODIX',
+    //         id: "D11"
+    //     }
        
-       return state.machines.find(machine=>machine.model===payload.model).listModel.find(machine=>machine.id===payload.id).history;
+       return state.machines.find(machine=>machine.model===state.findDate.model).listModel.find(machine=>machine.id===state.findDate.id).history;
 
     }
 }

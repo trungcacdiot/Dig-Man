@@ -3,11 +3,6 @@
                         running_bg: listModel.state.isRunning,
                         error_bg: listModel.state.isError,
                         maintance_bg: listModel.state.isMaintance}">
-        
-            <!-- <base-card class="base-card">
-        <label for="model">Model:</label>
-        <input  type="text" name="model" id="model" v-model="model"  />
-            </base-card> -->
             <base-card class="base-card" >
             <label for='id' >ID: </label>
             <input type="text" name="id" id="id" v-model="listModel.id" />
@@ -58,7 +53,7 @@ export default {
                 this.listModel.state.isError=false;
                 this.listModel.state.isMaintance=false;
             }
-            // console.log(this.model)
+           
             },
         running(){
             this.listModel.state.isRunning=!this.listModel.state.isRunning;
@@ -67,7 +62,6 @@ export default {
                 this.listModel.state.isMaintance=false;
                 this.listModel.state.isNice=false;
             }
-            // console.log(this.model)
 
         },
         error(){
@@ -77,7 +71,7 @@ export default {
                 this.listModel.state.isNice=false;
                 this.listModel.state.isMaintance=false;
             }
-            // console.log(this.model)
+ 
 
         },
         maintance(){
@@ -87,7 +81,6 @@ export default {
                 this.listModel.state.isError=false;
                 this.listModel.state.isNice=false
             }
-            // console.log(this.model)
 
         },
         addMachine(){
@@ -107,14 +100,10 @@ export default {
                     }
                     }  
             }
-            // console.log(this.id);
             this.$store.dispatch('machines/addMachine',newModel);
             
         },
-        // test(){
-        //     this.$store.getters['machines/listMachines']
-        //     console.log(this.$store.getters['machines/listMachines'])
-        // }
+        
         }
     }
 </script>
@@ -129,7 +118,6 @@ button{
     padding: 0.75rem 1.5rem;
     font: inherit;
     border: 1px solid #3a0061;
-    /* color: white; */
     cursor: pointer;
     border-radius: 30px;
     margin-right: 0.5rem;

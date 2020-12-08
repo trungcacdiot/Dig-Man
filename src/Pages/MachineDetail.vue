@@ -1,5 +1,5 @@
 <template>
-<section>
+<section class="machinedetail">
     <base-card :class="{nice_bg: state.isNice, 
                         running_bg: state.isRunning,
                         error_bg: state.isError,
@@ -18,16 +18,17 @@
         </div>
     </div>
      <div class="container">
+
      <h1 class="name" >Machine history</h1>
     </div>
     <div class="apply_button">
-    <!-- <base-button @click="stateMachine()">Get Data</base-button> -->
-    <base-button @click="apply">Apply</base-button>
         </div>
     <machine-history :id="id" :model="model"></machine-history>
     </base-card>
+    <div >
+    <base-button class="exit" @click="apply">Exit</base-button>
+    </div>
 </section>
-
 </template>
 
 <script>
@@ -59,46 +60,19 @@ export default {
    },
     
     methods: {
-        nice(){
-             this.state.isNice = true;
-                this.state.isRunning=false;
-                this.state.isError=false;
-                this.state.isMaintance=false;
-        },
-       
-         stateMachine(){
+        stateMachine(){
           let getState= this.$store.getters['machines/stateMachine'].listModel.find(machine=>machine.id===this.id);
           this.state.isNice=getState.state.isNice;
           this.state.isRunning=getState.state.isRunning;
           this.state.isError=getState.state.isError;
           this.state.isMaintance=getState.state.isMaintance;
         },
-        running(){
-             this.state.isRunning=true;
-                 this.state.isNice=false;
-                 this.state.isError=false;
-                 this.state.isMaintance=false;
-                   
-        },
-        error(){
-            this.state.isError=true;
-           
-                this.state.isNice=false;
+        nice(){
+             this.state.isNice = true;
                 this.state.isRunning=false;
-                this.state.isMaintance=false
-  
-        },
-        maintance(){
-             this.state.isMaintance=true;
-             
-                 this.state.isNice=false;
-                 this.state.isRunning=false;
-                 this.state.isError=false;
-    
-        },
-        apply(){
-
-            const newState={
+                this.state.isError=false;
+                this.state.isMaintance=false;
+                let newState={
                 model:this.model,
                 id: this.id,
                 isNice: this.state.isNice,
@@ -107,6 +81,56 @@ export default {
                 isMaintance: this.state.isMaintance
             }
             this.$store.dispatch('machines/newState', newState);
+        },
+       
+        running(){
+             this.state.isRunning=true;
+                 this.state.isNice=false;
+                 this.state.isError=false;
+                 this.state.isMaintance=false;
+                let newState={
+                model:this.model,
+                id: this.id,
+                isNice: this.state.isNice,
+                isRunning: this.state.isRunning,
+                isError: this.state.isError,
+                isMaintance: this.state.isMaintance
+            }
+            this.$store.dispatch('machines/newState', newState);   
+        },
+        error(){
+            this.state.isError=true;
+           
+                this.state.isNice=false;
+                this.state.isRunning=false;
+                this.state.isMaintance=false
+  let newState={
+                model:this.model,
+                id: this.id,
+                isNice: this.state.isNice,
+                isRunning: this.state.isRunning,
+                isError: this.state.isError,
+                isMaintance: this.state.isMaintance
+            }
+            this.$store.dispatch('machines/newState', newState);
+        },
+        maintance(){
+             this.state.isMaintance=true;
+             
+                 this.state.isNice=false;
+                 this.state.isRunning=false;
+                 this.state.isError=false;
+    let newState={
+                model:this.model,
+                id: this.id,
+                isNice: this.state.isNice,
+                isRunning: this.state.isRunning,
+                isError: this.state.isError,
+                isMaintance: this.state.isMaintance
+            }
+            this.$store.dispatch('machines/newState', newState);
+        },
+        apply(){
            this.$emit("back-home");
         }
     }
@@ -114,6 +138,16 @@ export default {
 </script>
 
 <style scoped>
+.machinedetail{
+    position: relative;
+}
+.exit{
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    width: 80px;
+    background: brown;
+}
 .name{
 width: 294px;
 height: 64px;
