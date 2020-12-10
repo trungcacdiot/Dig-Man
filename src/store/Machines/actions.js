@@ -14,6 +14,9 @@ export default{
     },
     historyIdentify(context,payload){
         context.commit('historyIdentify',payload)
+    },
+    addHistory(context,payload){
+        context.commit('addHistory',payload)
     }
     
 }

@@ -37,10 +37,7 @@ export default {
                         isMaintance: false,
                         isNice: false
                     },
-                    history: {
-                        date: '',
-                        historyMaintance: ''
-                    }
+                    history:[]
                     }   
         }
         },
@@ -94,10 +91,7 @@ export default {
                         isMaintance: this.listModel.state.isMaintance,
                         isNice: this.listModel.state.isNice
                     },
-                    history: {
-                        date: '',
-                        historyMaintance: ''
-                    }
+                    history: []
                     }  
             }
             this.$store.dispatch('machines/addMachine',newModel);

@@ -24,6 +24,15 @@ export default {
     historyIdentify(state,payload){
         state.findDate.model=payload.model;
         state.findDate.id=payload.id;
+    },
+    addHistory(state,payload){
+       let getHistory = state.machines.find(machine=>machine.model===state.findDate.model).listModel.find(machine=>machine.id===state.findDate.id).history;
+       let newHistory={
+           date: payload.date,
+           hours: payload.hours,
+           contents: payload.contents
+       }
+       getHistory.push(newHistory);
     }
 }
 

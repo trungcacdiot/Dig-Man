@@ -18,11 +18,9 @@
         </div>
     </div>
      <div class="container">
-
      <h1 class="name" >Machine history</h1>
     </div>
-    <div class="apply_button">
-        </div>
+    <form-historys :id="id" :model="model"></form-historys>
     <machine-history :id="id" :model="model"></machine-history>
     </base-card>
     <div >
@@ -32,12 +30,14 @@
 </template>
 
 <script>
+import FormHistorys from '../components/Machine/FormHistorys.vue';
 import MachineHistory from "./MachineHistory"
 export default {
     props: ['id', 'model'],
     emit: ['back-home'],
     components: {
-        MachineHistory
+        MachineHistory,
+        FormHistorys
     },
     data(){
         return{
@@ -48,10 +48,7 @@ export default {
             isError: false,
             isMaintance: false
             },
-            history: {
-                date: '',
-                historyMaintance: ''
-            }
+           
         }
   
     },

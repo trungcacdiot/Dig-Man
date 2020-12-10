@@ -34,6 +34,10 @@ export default {
         this.getHistory();
         this.getDate();
     },
+   Update(){
+         this.getHistory();
+         this.getDate();
+    },
     methods: {
         getHistory(){
              this.$store.dispatch('machines/historyIdentify',{model:this.model,id:this.id})
@@ -41,8 +45,8 @@ export default {
         },
         getDate(){
            let dategroup =[];
+           let check = true;
            for(let i=0 ; i<this.history.length; i++){
-               let check = true;
                for(let j=0; j<dategroup.length; j++ ){
                    if (this.history[i].date===this.history[j].date){
                        check = false;
