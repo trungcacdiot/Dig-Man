@@ -5,7 +5,10 @@
                         maintance_bg: listModel.state.isMaintance}">
             <base-card class="base-card" >
             <label for='id' >ID: </label>
+            
             <input type="text" name="id" id="id" v-model="listModel.id" />
+            <p v-if="Error" class="p1">You have to fill the Machine ID</p>
+            <p v-if="duplucate" class="p1">This ID already exists, chose another</p>
             </base-card>
             <div>
         <div class="container button">
@@ -16,10 +19,11 @@
             <button :class="{ error: listModel.state.isError }" @click="error" >Máy lỗi</button>
             <button :class="{maintance: listModel.state.isMaintance}" @click="maintance">Máy bảo trì</button>
         </div>
-        <div class="container">
-        <router-link to="/"><button @click="addMachine">APPLY</button></router-link>
-            
+        <div class="container" >
+            <p v-if="checkState" class="p1"> Chose machine state </p>
+        <router-link :to="link" ><button @click="addMachine">APPLY</button></router-link>
         </div>
+        
         </div>
     </base-card>
 </template>
@@ -38,11 +42,22 @@ export default {
                         isNice: false
                     },
                     history:[]
-                    }   
+                    },
+                    Error:false,
+                    link:"",
+                    duplucate:false,
+                    checkState:'',
+                    
         }
         },
-    
+     computed: {
+        machines(){
+            return this.$store.getters['machines/listMachines'];
+            
+        },
+    },
     methods: {
+       
         nice(){
            this.listModel.state.isNice=!this.listModel.state.isNice;
             if(this.listModel.state.isNice===true){
@@ -94,7 +109,29 @@ export default {
                     history: []
                     }  
             }
-            this.$store.dispatch('machines/addMachine',newModel);
+            let listModixMachine = this.machines.filter(machine =>machine.model===this.id);
+            const even = (element)=>element.id===this.listModel.id;
+           let check=listModixMachine[0].listModel.some(even);
+            if(this.listModel.id===""){
+                this.Error=true;
+            }
+            if(check===true){
+                this.duplucate=true;
+            }else{
+                this.duplucate=false
+            }
+            if(this.listModel.state.isNice|| this.listModel.state.isRunning||this.listModel.state.isError||this.listModel.state.isMaintance){
+                this.checkState=false;
+            }else{
+                this.checkState=true;
+            }
+            if(this.duplucate===false && this.Error===false&&this.checkState===false)
+            {
+                this.link="/"
+             this.$store.dispatch('machines/addMachine',newModel);
+            }
+            
+            
             
         },
         
@@ -103,6 +140,10 @@ export default {
 </script>
 
 <style scoped>
+.p1{
+    color: red;
+    padding-left: 10px;
+}
 .container{
     display: flex;
     justify-content: center;

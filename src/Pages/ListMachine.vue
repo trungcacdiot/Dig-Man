@@ -20,7 +20,7 @@
     </div>
     </div>
     <div class="name">
-    <base-button link to="/addMachine" :id="machine.model" >ADD</base-button>
+    <base-button link to="/addMachine" :id="machine.model" >Add machine</base-button>
     </div>
     </base-card>
     <div class="button_add_model"> 
