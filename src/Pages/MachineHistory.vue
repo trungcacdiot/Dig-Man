@@ -80,6 +80,6 @@ export default {
     width: 90%;
 }
 .otherday{
-    background: #76a1ab;
+    background: brown;
 }
 </style>

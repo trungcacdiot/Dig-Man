@@ -15,12 +15,12 @@
             
             <div>
         <div class="container button">
-            <button :class="{nice: listModel.state.isNice}" @click="nice" >Máy in đẹp</button>
-            <button :class="{running: listModel.state.isRunning}" @click="running" >Máy hoạt động</button>
+            <button :class="{nice: listModel.state.isNice}" @click="nice" >Nice printer</button>
+            <button :class="{running: listModel.state.isRunning}" @click="running" >Works normally</button>
         </div>
         <div class="container button">
-            <button :class="{ error: listModel.state.isError }" @click="error" >Máy lỗi</button>
-            <button :class="{maintance: listModel.state.isMaintance}" @click="maintance">Máy bảo trì</button>
+            <button :class="{ error: listModel.state.isError }" @click="error" >Machine error</button>
+            <button :class="{maintance: listModel.state.isMaintance}" @click="maintance">Needs maintenance</button>
         </div>
         <div class="container">
         <router-link to="/">

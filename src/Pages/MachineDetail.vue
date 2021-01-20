@@ -9,19 +9,21 @@
     </div>
     <div>
         <div class="container button">
-            <button :class="{nice: state.isNice}" @click="nice()" >Máy in đẹp</button>
-            <button :class="{running: state.isRunning}" @click="running()" >Máy hoạt động</button>
+            <button :class="{nice: state.isNice}" @click="nice()" >Nice printer</button>
+            <button :class="{running: state.isRunning}" @click="running()" >Works normally</button>
         </div>
         <div class="container button">
-            <button :class="{ error: state.isError }" @click="error()" >Máy lỗi</button>
-            <button :class="{maintance: state.isMaintance}" @click="maintance()">Máy bảo trì</button>
+            <button :class="{ error: state.isError }" @click="error()" >Machine error</button>
+            <button :class="{maintance: state.isMaintance}" @click="maintance()">Needs maintenance</button>
         </div>
     </div>
+    <base-card class="machine_history">
      <div class="container">
      <h1 class="name" >Machine history</h1>
     </div>
     <form-historys :id="id" :model="model"></form-historys>
     <machine-history :id="id" :model="model"></machine-history>
+    </base-card>
     </base-card>
     <div >
     <base-button class="exit" @click="apply">Exit</base-button>
@@ -31,13 +33,15 @@
 
 <script>
 import FormHistorys from '../components/Machine/FormHistorys.vue';
+
 import MachineHistory from "./MachineHistory"
 export default {
     props: ['id', 'model'],
     emit: ['back-home'],
     components: {
         MachineHistory,
-        FormHistorys
+        FormHistorys,
+       
     },
     data(){
         return{
@@ -135,6 +139,9 @@ export default {
 </script>
 
 <style scoped>
+.machine_history{
+    background-color:#d6d6d6;
+}
 .machinedetail{
     position: relative;
 }

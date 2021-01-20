@@ -34,3 +34,13 @@ export default {
     }
 }
 </script>
+<style scoped>
+input{
+    height: 30px;
+    width: 200px;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-right: 20px;
+}
+</style>

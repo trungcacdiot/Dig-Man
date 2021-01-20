@@ -3,25 +3,34 @@
                         running_bg: listModel.state.isRunning,
                         error_bg: listModel.state.isError,
                         maintance_bg: listModel.state.isMaintance}">
-            <base-card class="base-card" >
-            <label for='id' >ID: </label>
-            
-            <input type="text" name="id" id="id" v-model="listModel.id" />
-            <p v-if="Error" class="p1">You have to fill the Machine ID</p>
-            <p v-if="duplucate" class="p1">This ID already exists, chose another</p>
+            <base-card class="base-card"  >
+
+
+            <div class="error_container">
+                <div>
+                    <label for='id' >ID: </label>
+                    <input type="text" name="id" id="id" v-model="listModel.id" /><br/>
+                </div>
+                <p v-if="Error" class="p1">You have to fill the Machine ID</p>
+                <p v-if="duplucate" class="p1">This ID already exists, chose another</p>
+            </div>
+
             </base-card>
             <div>
         <div class="container button">
-            <button :class="{nice: listModel.state.isNice}" @click="nice" >Máy in đẹp</button>
-            <button :class="{running: listModel.state.isRunning}" @click="running" >Máy hoạt động</button>
+            <button :class="{nice: listModel.state.isNice}" @click="nice" >Nice printer</button>
+            <button :class="{running: listModel.state.isRunning}" @click="running" >Works normally</button>
         </div>
         <div class="container button">
-            <button :class="{ error: listModel.state.isError }" @click="error" >Máy lỗi</button>
-            <button :class="{maintance: listModel.state.isMaintance}" @click="maintance">Máy bảo trì</button>
+            <button :class="{ error: listModel.state.isError }" @click="error" >Machine error</button>
+            <button :class="{maintance: listModel.state.isMaintance}" @click="maintance">Needs maintenance</button>
         </div>
         <div class="container" >
-            <p v-if="checkState" class="p1"> Chose machine state </p>
-        <router-link :to="link" ><button @click="addMachine">APPLY</button></router-link>
+            <div class="error_container">
+                <p v-if="checkState" class="p1"> Chose machine state </p><br/>
+                <router-link :to="link" ><button @click="addMachine">APPLY</button></router-link>
+            </div>
+      
         </div>
         
         </div>
@@ -114,6 +123,8 @@ export default {
            let check=listModixMachine[0].listModel.some(even);
             if(this.listModel.id===""){
                 this.Error=true;
+            }else{
+                this.Error=false;
             }
             if(check===true){
                 this.duplucate=true;
@@ -140,6 +151,10 @@ export default {
 </script>
 
 <style scoped>
+.enrror_container{
+    display: flex;
+    flex-direction: column;
+}
 .p1{
     color: red;
     padding-left: 10px;
