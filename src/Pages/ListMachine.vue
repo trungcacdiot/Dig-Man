@@ -16,7 +16,6 @@
                 maintance_bg: detail.state.isMaintance}"
                 :id="detail.id" >{{detail.id}}
             </base-button>
-           
     </div>
     </div>
     <div class="name">
@@ -67,7 +66,8 @@ export default {
 
 
 <style scoped>
-.detail{
+
+.detail{ 
     position: absolute;
     width: 100%;
     display: flex;
@@ -90,6 +90,7 @@ color: black;
 .list_machines{
     display: flex;
     flex-wrap: wrap;
+    margin-left: 25px;
     
 }
 .button{
@@ -125,4 +126,6 @@ color: black;
 }
 .maintance_bg{
     background: #FEB979;}
+
+
 </style>

@@ -34,6 +34,7 @@
         </div>
         
         </div>
+      
     </base-card>
 </template>
 <script>
@@ -66,6 +67,7 @@ export default {
         },
     },
     methods: {
+       
        
         nice(){
            this.listModel.state.isNice=!this.listModel.state.isNice;

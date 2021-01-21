@@ -1,6 +1,6 @@
 <template>
 <base-card>
-<input placeholder="Nhập thêm lịch sử máy " v-model="contents" />
+<input placeholder="Add machine history" v-model="contents" />
 <base-button @click="getTime()">Apply</base-button>
 </base-card>
 </template>

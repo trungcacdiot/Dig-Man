@@ -12,6 +12,16 @@
 *{
     font-size: 30px;
 }
+@media only screen and (max-width: 425px){
+   .machine_condition>button{
+       font-size: 14px;
+   }
+   .maintance{
+    background: #FEB979;
+    width: 25%;
+
+}
+}
 .header_text{
     width: 100%;
     display: flex;
